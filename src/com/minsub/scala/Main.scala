@@ -7,5 +7,8 @@ object Main {
   def main(args: Array[String]): Unit = {
     println(1 + 2)
     println( (1).+(2))
+
+    val s = "123"
+    println("getClass: " + s.getClass)
   }
 }

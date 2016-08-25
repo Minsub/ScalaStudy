@@ -22,6 +22,19 @@ object AnonymousFunctionTest {
     val v3 = doing(_ + _)
 
     println("my: ", v1, v2, v3)
+
+
+    // 변수에 함수를 선언한다
+    val f = (x:Int,y:Int) => x + y
+    println(f.getClass + ", f: " + f(10, 5))
+
+    // Partial Application: _ 로 인자값을 선언하면 return값이 함수가 된다
+    val f2 = f(5,_:Int)
+    println("f2(7): " + f2(7))
+
+    // curried functions
+    println("curried func: " + curFunc(3)(2) )
+    println("not curried func: " + notCurFunc(3,2) )
   }
 
   // 매개변수로 받은 익명함수에 1과 2를 넣어서 실행하는 메소드
@@ -32,4 +45,8 @@ object AnonymousFunctionTest {
   def doing(func: (Int, Int) => Int) = {
     func(2, 3)
   }
+
+  // curried functions
+  def curFunc(m:Int)(n:Int): Int = m * n
+  def notCurFunc(m:Int,n:Int): Int = m * n
 }
