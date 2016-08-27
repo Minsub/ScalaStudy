@@ -11,6 +11,12 @@ object MethodTest {
     println(s"③ ${addWithoutBlock(1,2)}")
 
     println("just: ", add(3,3))
+
+
+    println(s"CapitalizeAll: ${capitalizeAll("apple","banana")}")
+
+
+
   }
 
   // ① 일반적인 메소드
@@ -26,4 +32,9 @@ object MethodTest {
   // ③ 메소드가 한 줄일 경우 중괄호{}를 생략해도 됩니다.
   def addWithoutBlock(x:Int, y:Int) = x + y
 
+
+  // 4. 가변길이 메소드
+  def capitalizeAll(args: String*) = {
+    args.map { arg => arg.capitalize }
+  }
 }
