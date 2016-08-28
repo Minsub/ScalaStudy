@@ -5,10 +5,7 @@ package com.minsub.scala
   */
 object Main {
   def main(args: Array[String]): Unit = {
-    println(1 + 2)
-    println( (1).+(2))
-
-    val s = "123"
-    println("getClass: " + s.getClass)
+    println(List(1,2,3).map(_*2))
+    println(List(1,2,3) map (_*2) )
   }
 }

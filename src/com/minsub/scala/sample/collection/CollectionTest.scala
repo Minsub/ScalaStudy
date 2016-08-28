@@ -35,7 +35,9 @@ object CollectionTest {
     }
     println(s"o: ${o}")
 
-
+    // 6. Seq
+    val seq = Seq(1,2,3,4,1,2,3,4)
+    println(s"Seq: ${seq}")
 
   }
 }
