@@ -2,49 +2,33 @@ package com.minsub.scala.study2
 
 import scala.collection.mutable
 
-/**
-  * Created by hmm1115222 on 2016-12-02.
-  */
 object Summary {
 
-  class Cat extends Animal
-
-  class Dog extends Animal
-
-  class Animal {
-    def bite() = println("Bite!!")
-  }
-
-  class TT[+Animal]
-
-  class CC[+T]
-
-  def test[T](x: T) = {
-
-  }
-
-  def test0(x: Animal) = {
-    x.bite()
-  }
-
-  def test2[T >: Animal](x: T) = {
-
-  }
-
-  def test3[T <: Animal](x: T) = {
-    x.bite()
-  }
-
   def main(args: Array[String]): Unit = {
+    // yield
+    val a = for (i <- 1 to 3) yield i  // Vector(1, 2, 3)
+    println(a)
 
-    val cat = new Cat
-    val dog = new Dog
+    val b = for (i <- 1 to 3) yield i * 100 // Vector(100, 200, 300)
+    println(b)
 
-    val animal = new Animal
+    val c = for (i <- 1 to 3) yield i > 2 // Vector(false, false, true)
+    println(c)
 
-    val a = new TT[String]
+    val d = for (i <- 1 to 3; if i==1; if i==2) yield i  // Vector(1,2)
+    println(d)
 
+    val e = for (element <- List.range(1, 4)) yield element  // List(1, 2, 3)
+    println(e)
 
-    test3(dog)
+    // Tuple만들기
+    val f = for (i <- List("A","B"); j <- List(1,2,3)) yield (i, j)  // List((A,1), (A,2), (A,3), (B,1), (B,2), (B,3))
+    println(f)
+
+    // 중복찾기
+    val g = for (i <- List(1,3,5); j <- List(1,2,3); if i==j) yield i  // List(1, 3)
+    println(g)
   }
 }
+
+

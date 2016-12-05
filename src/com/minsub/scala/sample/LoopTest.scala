@@ -1,5 +1,7 @@
 package com.minsub.scala.sample
 
+import scala.util.control.Breaks
+
 /**
   * Created by jiminsub on 2016. 8. 15..
   */
@@ -52,5 +54,32 @@ object LoopTest {
       case "둘" => println("둘을 선택했습니다.")
       case _ => println("다른 값")
     }
+
+    // break 문
+    val outer = new Breaks
+    val inner = new Breaks
+
+    outer.breakable {
+      (1 to 3).foreach(i => {
+        if (i > 2) {
+          outer.break
+        }
+        inner.breakable {
+          (1 to 5).foreach(j => {
+            if (j > 3) {
+              inner.break
+            }
+            println(s"$i - $j")
+          })
+        }
+      })
+    }
+
+    // yield
+    for (i <- 1 to 3) {
+      println(i)
+    }
+
+
   }
 }
